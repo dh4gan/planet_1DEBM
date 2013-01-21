@@ -1,0 +1,16 @@
+n	Is this a restart? (y/n)
+test.100	If a restart, specify the initial conditions file
+a1e0p0		File prefix for this run
+144		Number of grid points
+1.0		Star Mass in Solar Masses
+0.9		Semi Major Axis of Orbit (in AU)
+0.0		Eccentricity
+0.0		Longitude of Periastron (in degrees)
+0.0		Initial orbital longitude (in degrees, periastron=0)
+1.0		Rotation period of Planet (in days)
+23.5		Spin Obliquity (in degrees)
+0.0		Longitude of Winter Solstice (degrees, relative to periastron)
+0.7		Fraction of planet surface that is ocean
+288.0		Initial Surface Temperature (in K)
+1.0d2		Maximum Simulation Time (in years)
+1.0d-1		Frequency at which simulation dumps data (in years)
