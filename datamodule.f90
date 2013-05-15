@@ -30,7 +30,7 @@ module ebmdata
   
   real :: semi_maj, ecc, phi, rot_period, orb_period,orb_freq, spin_obliq,azim_obliq, C_ice
   real :: f_ocean, f_land, To, time, maxtime, dlat,deltat,h_ang, phi_peri
-  real :: r,H,Fj,Fj1,Mstar,diff,dumpfreq,timeyr
+  real :: r,H,Fj,Fj1,Mstar,Lstar,diff,dumpfreq,timeyr
 
 ! Characters
 

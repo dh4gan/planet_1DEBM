@@ -3,8 +3,9 @@ test.100	If a restart, specify the initial conditions file
 a1e0p0		File prefix for this run
 144		Number of grid points
 1.0		Star Mass in Solar Masses
-0.9		Semi Major Axis of Orbit (in AU)
-0.0		Eccentricity
+1.0		Star Luminosity in solar luminosities (set to zero for MS calc)
+1.0		Semi Major Axis of Planet Orbit (in AU)
+0.0		Eccentricity of Planet Orbit
 0.0		Longitude of Periastron (in degrees)
 0.0		Initial orbital longitude (in degrees, periastron=0)
 1.0		Rotation period of Planet (in days)

@@ -24,6 +24,7 @@ PROGRAM planet_1DEBM
   READ(10,*) prefix		! Character prefix for filenames
   READ(10,*) nx			! Number of grid points
   READ(10,*) Mstar		! Star mass in solar masses
+  READ(10,*) Lstar              ! Star luminosity in solar luminosities
   READ(10,*) semi_maj		! Semi major axis (AU)
   READ(10,*) ecc		! Eccentricity 
   READ(10,*) phi_peri           ! Longitude of Periastron in degrees

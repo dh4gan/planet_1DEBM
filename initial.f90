@@ -63,6 +63,13 @@ SUBROUTINE initial
   ENDDO
  ! STOP
   
+  ! Check stellar luminosity
+  ! If less than or equal to zero, assume we are using main sequence relations
+
+  if(Lstar <= 0.0) then
+     Lstar = Mstar**4.0
+  endif
+
   ! 		Orbital period in years
   orb_period = sqrt(semi_maj*semi_maj*semi_maj/Mstar)
 

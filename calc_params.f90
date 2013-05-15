@@ -21,7 +21,7 @@ SUBROUTINE calc_params
   ! Calculate current orbital radius
 
   r = semi_maj*(1.0-ecc*ecc)/(1.0+ecc*cos(phi-phi_peri))
-  insol(:) = (q0*Mstar**4)/(pi*r*r) ! Assuming typical main sequence relation for stellar luminosity
+  insol(:) = (q0*Lstar)/(pi*r*r) 
 
   ! Current solar declination (polar) angle
      sind = -DSIN(spin_obliq)*DCOS(phi-phi_peri - azim_obliq)     
