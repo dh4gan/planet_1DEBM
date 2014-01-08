@@ -49,7 +49,7 @@ SUBROUTINE initial
      time = 0.0
      DO i=1,nx+1
         lat(i) = -pi/2.0 + (i-1)*dlat
-        x(i) = dsin(lat(i))
+        x(i) = sin(lat(i))
      ENDDO
     
      latdeg(:) = lat(:)*180.0/pi
@@ -88,7 +88,7 @@ SUBROUTINE initial
   
   !		Current radial position
   
-  r = semi_maj*(1.0-ecc*ecc)/(1.0+ecc*DCOS(phi-phi_peri))
+  r = semi_maj*(1.0-ecc*ecc)/(1.0+ecc*COS(phi-phi_peri))
   
   !		Diffusion coefficient
   ! (In these units, rot_period prop 1/angvel)

@@ -24,8 +24,8 @@ SUBROUTINE calc_params
   insol(:) = (q0*Lstar)/(pi*r*r) 
 
   ! Current solar declination (polar) angle
-     sind = -DSIN(spin_obliq)*DCOS(phi-phi_peri - azim_obliq)     
-     delta = ASIN(sind)
+     sind = -sin(spin_obliq)*cos(phi-phi_peri - azim_obliq)     
+     delta = asin(sind)
      cosd = sqrt(1.0-sind*sind)
      tand = tan(delta)
 
@@ -38,7 +38,7 @@ SUBROUTINE calc_params
   DO i=1,nx+1
      
      !		Diurnally averaged Hour Angle     
-        cos_H(i) = -dtan(lat(i))*tand
+        cos_H(i) = -tan(lat(i))*tand
      
      IF(ABS(cos_H(i))>1.0) cos_H(i) = cos_H(i)/ABS(cos_H(i))
         
@@ -51,7 +51,7 @@ SUBROUTINE calc_params
      !  Now calculate temperature dependent properties
      !	Ice Cover
 
-     f_ice(i) = 1.0 - DEXP(-(freeze-T(i))/10.0)
+     f_ice(i) = 1.0 - EXP(-(freeze-T(i))/10.0)
      IF(f_ice(i)<0.0) f_ice(i) =0.0
 
      !	Heat Capacity
