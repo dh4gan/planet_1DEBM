@@ -74,15 +74,17 @@ PROGRAM planet_1DEBM
   print*, 'Calculating initial climate parameters'
   CALL calc_params
   print*, "-----------------------------------------------"		
-  !		Output initial model
 
+
+  ! Set up log file
+  runfile = TRIM(prefix)//'.log'
   OPEN(76,file=runfile,status='unknown')
 
+  !		Output initial model
   filename = TRIM(prefix)//'.initial'
   CALL output
 
 
-  runfile = TRIM(prefix)//'.log'
   
   deltat = maxtime
 
