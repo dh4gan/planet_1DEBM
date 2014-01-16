@@ -76,6 +76,8 @@ PROGRAM planet_1DEBM
   print*, "-----------------------------------------------"		
   !		Output initial model
 
+  OPEN(76,file=runfile,status='unknown')
+
   filename = TRIM(prefix)//'.initial'
   CALL output
 
@@ -89,7 +91,7 @@ PROGRAM planet_1DEBM
 
   CALL calc_params
   
-  OPEN(76,file=runfile,status='unknown')
+ 
 
   
   timeyr = time/yr
