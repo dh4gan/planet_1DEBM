@@ -83,8 +83,6 @@ PROGRAM planet_1DEBM
   !		Output initial model
   filename = TRIM(prefix)//'.initial'
   CALL output
-
-
   
   deltat = maxtime
 
