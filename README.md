@@ -10,4 +10,10 @@ Two other codes are supplied, compiled by typing:
 'make time_average' to produce a code which averages snapshots from the simulation
 'make equilibrium' to produce a code which calculates the input albedo, cooling and other functions as a function of temperature for plotting
 
-Currently, no plotting scripts are supplied with this code!
+Two Python plotting scripts are supplied with this code:
+
+plot_log_planet_1DEBM.py - this plots the data in the log file, where quantities are stored as a function of time
+
+plot_timeaverage_planet_1DEBM.py - this plots a time average of data in the snapshot files, where quantities are stored as a function of latitude
+
+
