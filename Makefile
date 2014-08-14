@@ -19,7 +19,7 @@ FFLAGS = -O3 -frecord-marker=4 -fdefault-real-8
 	$(FC) $(FFLAGS) -c $<
 
 # Source files (.F90)
-SOURCESAF90 = datamodule.f90 main.f90 calc_params.f90 initial.f90 integrate.f90 output.f90 timestep.f90
+SOURCESAF90 = datamodule.f90 main.f90 adjustpCO2_spiegel.f90 calc_params.f90 initial.f90 integrate.f90 output.f90 timestep.f90 WK97cooling.f90
 OBJECTSA    = $(SOURCESAF90:.f90=.o)
 
 # Create executable files:

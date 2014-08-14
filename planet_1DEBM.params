@@ -12,6 +12,8 @@ a1e0p0		File prefix for this run
 23.5		Spin Obliquity (in degrees)
 0.0		Longitude of Winter Solstice (degrees, relative to periastron)
 0.7		Fraction of planet surface that is ocean
+0.0		Diffusion constant (latitudinal heat transport)
 288.0		Initial Surface Temperature (in K)
 1.0d2		Maximum Simulation Time (in years)
 1.0d-1		Frequency at which simulation dumps data (in years)
+y		Is the Carbonate Silicate Cycle active? (y/n)

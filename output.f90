@@ -2,7 +2,7 @@ SUBROUTINE output
   use ebmdata
   IMPLICIT NONE
 
-  real :: meanT,meanQ,meanS,meanIR, meanA,subQ,habfrac,dbit
+  real :: meanT,meanQ,meanS,meanIR, meanA, meanpCO2, subQ,habfrac,dbit
 
   !		Subroutine outputs all data to output file
   
@@ -18,7 +18,9 @@ SUBROUTINE output
   WRITE(12,*) nx, timeyr, step, dumpcount,dumpfreq
   
   DO i=1,nx
-     WRITE(12,*) x(i), latdeg(i), T(i), C_tot(i), Q(i), infrared(i), albedo(i), insol(i), tau_ir(i), f_ice(i),hab(i),ACOS(cos_H(i))
+     WRITE(12,*) x(i), latdeg(i), T(i), C_tot(i), Q(i), infrared(i), &
+ albedo(i), insol(i), tau_ir(i), f_ice(i),&
+ hab(i),ACOS(cos_H(i)), pCO2(i)
   ENDDO
   CLOSE(12)
   
@@ -30,6 +32,7 @@ SUBROUTINE output
   meanA = 0.0
   meanIR = 0.0
   meanS = 0.0
+  meanPCO2 = 0.0
   habfrac = 0.0
 
   DO i=1,nx
@@ -39,6 +42,7 @@ SUBROUTINE output
      meanA = meanA + Q(i)*dbit
      meanS = meanS + insol(i)*dbit
      meanIR = meanIR + infrared(i)*dbit
+     meanPCO2 = meanPCO2 + pCO2(i)*dbit
      habfrac = habfrac + 0.5*hab(i)*COS(lat(i))*dlat
   ENDDO
 
@@ -58,6 +62,8 @@ SUBROUTINE output
 
   !		Now update log file
   
-  WRITE(76,*) time/yr, step, deltat/yr, r,phi, meanT,meanIR,meanS,meanQ,maxval(T),minval(T),habfrac
+  WRITE(76,*) time/yr, step, deltat/yr, r,phi, meanT,&
+meanIR,meanS,meanQ, &
+maxval(T),minval(T),habfrac, meanPCO2
   
 END SUBROUTINE output

@@ -23,6 +23,7 @@ SUBROUTINE initial
   allocate(f_ice(nx+1))
   allocate(C_tot(nx+1))
   allocate(albedo(nx+1))
+  allocate(PCO2(nx+1))
   allocate(insol(nx+1))
   allocate(tau_ir(nx+1))
   allocate(infrared(nx+1))
@@ -48,6 +49,7 @@ SUBROUTINE initial
      T_old(:) = T(:)
      time = 0.0
      DO i=1,nx+1
+        call adjustpCO2(T(i),PCO2(i))
         lat(i) = -pi/2.0 + (i-1)*dlat
         x(i) = sin(lat(i))
      ENDDO

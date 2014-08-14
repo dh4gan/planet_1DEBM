@@ -33,12 +33,18 @@ PROGRAM planet_1DEBM
   READ(10,*) spin_obliq		! Obliquity of Spin Axis (degrees)
   READ(10,*) azim_obliq         ! Longitude of winter solstice relative to periastron(degrees)
   READ(10,*) f_ocean		! Fraction of surface that is ocean
+  READ(10,*) D          ! Diffusion constant (non-cscycle standard = 5.394d2)
   READ(10,*) To			! Initial planet temperature (K)
   READ(10,*) maxtime		! Maximum simulation time (years)
   READ(10,*) dumpfreq		! Time interval between outputs
+  READ(10,*) cscycle        ! Is the carbonate silicate cycle active?
   
   CLOSE(10)
-  
+
+  IF (D==0.0) THEN
+    D= D0
+    ENDIF
+
   !		Set up initial conditions
   
   print*, 'Initial conditions successfully read in from ebm_params.dat'
@@ -56,12 +62,10 @@ PROGRAM planet_1DEBM
   print*, 'Ocean Coverage: ',f_ocean
   print*, 'Land Coverage: ',(1.0-f_ocean)
   print*, 'Initial Global Temperature: ', To
+  print*, 'Diffusion Constant: ', D
   Print*, 'Maximum Runtime: ',maxtime
   print*, 'Output files to have prefix: ',prefix
   print*, "-----------------------------------------------"
-  
-  wait(3)
-
   print*, 'Initialising arrays'
   step = 1
 

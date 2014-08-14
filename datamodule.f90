@@ -17,7 +17,7 @@ module ebmdata
   real, parameter :: pi = 3.141592653
   real, parameter :: G = 6.673d-8
   real, parameter :: sigma_SB = 5.6704d-5
-  real, parameter :: D = 5.394d2
+  real, parameter :: D0 = 5.394d2 ! This diffusion constant suitable for non cscycle runs
   real, parameter :: C_land = 5.25d9
   real, parameter :: C_ocean = 40.0*C_land
   real, parameter :: freeze = 273.0	! Freezing Point of Water
@@ -31,18 +31,19 @@ module ebmdata
   real :: semi_maj, ecc, phi, rot_period, orb_period,orb_freq, spin_obliq,azim_obliq, C_ice
   real :: f_ocean, f_land, To, time, maxtime, dlat,deltat,h_ang, phi_peri
   real :: r,H,Fj,Fj1,Mstar,Lstar,diff,dumpfreq,timeyr
+real :: D
 
 ! Characters
 
   character(len=100) :: prefix, filename, runfile
-  character(len=100) :: fileno,restart,icfile
-		      
+  character(len=100) :: fileno,icfile
+character(len=1) :: restart, cscycle
 !-------------------Array values----------------------------------------
 ! Integers
 
 
 ! Reals
   real, allocatable,dimension(:) :: T, T_old, insol,cos_H,t_try
-  real, allocatable,dimension(:) :: f_ice, C_tot, lat, x,albedo,tau_ir
+  real, allocatable,dimension(:) :: f_ice, C_tot, lat, x,albedo,tau_ir, pCO2
   real, allocatable,dimension(:) :: infrared, Q,deltax,hab,latdeg
 end module ebmdata

@@ -69,10 +69,18 @@ SUBROUTINE calc_params
      !	Albedo
      albedo(i) = 0.525 - 0.245*tanh((T(i)-freeze+5.0)/5.0)
 
-     !	Optical Depth
-     tau_ir(i) = 0.79*(T(i)/freeze)**3
-     !	Infrared Cooling Function
-     infrared(i) = sigma_SB*(T(i)*T(i)*T(i)*T(i))/(1.0 + 0.75*tau_ir(i))
+    !	Optical Depth
+    tau_ir(i) = 0.79*(T(i)/freeze)**3
+
+    !     	Infrared Cooling Function
+    !       If CS cycle switched on, use WK97 cooling function
+    !       Otherwise, use simple blackbody approximation
+
+    if(cscycle=='y') THEN
+        call WK97cooling(T(i),pCO2(i), infrared(i))
+    ELSE
+        infrared(i) = sigma_SB*(T(i)*T(i)*T(i)*T(i))/(1.0 + 0.75*tau_ir(i))
+    ENDIF
 
      ! Net Heating Function
      Q(i) = insol(i)*(1.0-albedo(i)) - infrared(i)
