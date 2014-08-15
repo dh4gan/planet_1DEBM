@@ -39,7 +39,7 @@ SUBROUTINE output
      dbit = 0.5*cos(lat(i))*dlat
      meanT = meanT + T(i)*dbit
      meanQ = meanQ + Q(i)*dbit
-     meanA = meanA + Q(i)*dbit
+     meanA = meanA + albedo(i)*dbit
      meanS = meanS + insol(i)*dbit
      meanIR = meanIR + infrared(i)*dbit
      meanPCO2 = meanPCO2 + pCO2(i)*dbit
